@@ -14,6 +14,9 @@
 		45A3D78E1FCDD5D7004F4678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A3D78C1FCDD5D7004F4678 /* LaunchScreen.storyboard */; };
 		45A3D7991FCDD5D7004F4678 /* ClientSideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D7981FCDD5D7004F4678 /* ClientSideTests.swift */; };
 		45A3D7A41FCDD5D7004F4678 /* ClientSideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D7A31FCDD5D7004F4678 /* ClientSideUITests.swift */; };
+		45A3D7B21FCDD649004F4678 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D7B11FCDD649004F4678 /* SecondView.swift */; };
+		45A3D7B41FCDD677004F4678 /* POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D7B31FCDD677004F4678 /* POST.swift */; };
+		45A3D7B61FCDD689004F4678 /* GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D7B51FCDD689004F4678 /* GET.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		45A3D79F1FCDD5D7004F4678 /* ClientSideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClientSideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A3D7A31FCDD5D7004F4678 /* ClientSideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideUITests.swift; sourceTree = "<group>"; };
 		45A3D7A51FCDD5D7004F4678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45A3D7B11FCDD649004F4678 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		45A3D7B31FCDD677004F4678 /* POST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POST.swift; sourceTree = "<group>"; };
+		45A3D7B51FCDD689004F4678 /* GET.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GET.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			children = (
 				45A3D7831FCDD5D6004F4678 /* AppDelegate.swift */,
 				45A3D7851FCDD5D6004F4678 /* ViewController.swift */,
+				45A3D7B11FCDD649004F4678 /* SecondView.swift */,
+				45A3D7B31FCDD677004F4678 /* POST.swift */,
+				45A3D7B51FCDD689004F4678 /* GET.swift */,
 				45A3D7871FCDD5D7004F4678 /* Main.storyboard */,
 				45A3D78A1FCDD5D7004F4678 /* Assets.xcassets */,
 				45A3D78C1FCDD5D7004F4678 /* LaunchScreen.storyboard */,
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A3D7B61FCDD689004F4678 /* GET.swift in Sources */,
+				45A3D7B21FCDD649004F4678 /* SecondView.swift in Sources */,
 				45A3D7861FCDD5D6004F4678 /* ViewController.swift in Sources */,
 				45A3D7841FCDD5D6004F4678 /* AppDelegate.swift in Sources */,
+				45A3D7B41FCDD677004F4678 /* POST.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RY3D47G7M3;
 				INFOPLIST_FILE = ClientSide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oskarlukacz.ClientSide;
@@ -441,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RY3D47G7M3;
 				INFOPLIST_FILE = ClientSide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oskarlukacz.ClientSide;
