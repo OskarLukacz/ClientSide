@@ -1,11 +1,3 @@
-//
-//  SecondView.swift
-//  ClientSide
-//
-//  Created by Oskar Lukacz on 11/28/17.
-//  Copyright © 2017 Oskar Lukacz. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -101,6 +93,10 @@ class SecondUIView: UIViewController {
             var index = response.index(of: ":");index = response.index(index!, offsetBy: 1)
             let uuid = String(describing: response[index!...])
             print("Success! UUID = \(uuid)")
+            user.serverSideUUID = uuid
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "displayName", sender: nil)
+            }
             
         case "f":
             
@@ -132,6 +128,17 @@ class SecondUIView: UIViewController {
         usernameMessage.text = ""
         passwordMessage.text = ""
         usernameMessage.text = ""
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        /*switch segue.identifier {
+        case "Login"?:
+            destination.state = 0
+        case "Create"?:
+            destination.state = 1
+        default: break
+        }*/
     }
     
     

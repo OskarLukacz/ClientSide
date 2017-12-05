@@ -1,14 +1,4 @@
-//
-//  ViewController.swift
-//  ClientSide
-//
-//  Created by Oskar Lukacz on 11/28/17.
-//  Copyright © 2017 Oskar Lukacz. All rights reserved.
-//
-
 import UIKit
-
-var serverIP = String()
 
 class ViewController: UIViewController {
     
