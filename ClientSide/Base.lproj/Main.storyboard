@@ -216,6 +216,15 @@
                                 <color key="textColor" red="1" green="0.045477028231975858" blue="0.029312034979456891" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uty-dX-cuH">
+                                <rect key="frame" x="132" y="385" width="110" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="Enter:" destination="p5k-fu-P1T" eventType="touchUpInside" id="bE5-Y3-LCU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="FjF-vp-NgQ"/>

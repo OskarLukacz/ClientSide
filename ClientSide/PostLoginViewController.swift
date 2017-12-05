@@ -6,7 +6,7 @@ class PostLoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setIP
+        GET(url: "users")
         
     }
     

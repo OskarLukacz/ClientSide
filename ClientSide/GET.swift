@@ -1,10 +1,9 @@
 import Foundation
 
-func getJSONData(urlString:String)
+func GET(url:String)
 {
     
-    let url = URL(string: urlString)!
-    let request = URLRequest(url: url)
+    let request = URLRequest(url: URL(string: "http://10.46.22.145:8080/\(url)")!)
     
     
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -15,8 +14,6 @@ func getJSONData(urlString:String)
         jsonToString(json: json as AnyObject)
         
         //self.jsonToString(json: data as AnyObject)
-        
-        
         
     }
     
@@ -38,3 +35,13 @@ func jsonToString(json: AnyObject){
     
 }
 
+func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    return nil
+}
