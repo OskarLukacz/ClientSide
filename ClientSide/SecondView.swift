@@ -42,17 +42,54 @@ class SecondUIView: UIViewController {
         
         print(state)
         
-        /*if state == 0{
-            Login()
+        if state == 0{
+            confirmPassword.alpha = 0.0
+            confirmPassword.isEnabled = false
+            confirmPasswordLabel.alpha = 0.0
         }
-        else{
-            Create()
-        }*/
+
     }
     
     func Login()
     {
         
+        password = passwordTextField.text!
+        username = usernameTextField.text!
+        
+        
+        let payload = "{\n\t" + "\"username\":" + "\"\(username)\"," + "\n\t\"password\":" + "\"\(password)\"" + "\n}"
+            
+        POST(input: payload, url: "login", completionHandler: { res in
+            self.loginRequestDone(response: res)
+                
+        })
+        
+        
+    }
+    
+    func loginRequestDone(response:String)
+    {
+        switch response.first! {
+            
+        case "t":
+            
+            var index = response.index(of: ":");index = response.index(index!, offsetBy: 1)
+            let uuid = String(describing: response[index!...])
+            print("Success! UUID = \(uuid)")
+            user.serverSideUUID = uuid
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "loginSuccesful", sender: nil)
+            }
+            
+        case "f":
+            
+                DispatchQueue.main.async {
+                    self.usernameMessage.text = "Invalid username or password"
+                }
+            
+        default:break
+            
+        }
     }
     
     func Create()
@@ -77,14 +114,14 @@ class SecondUIView: UIViewController {
             let payload = "{\n\t" + "\"username\":" + "\"\(username)\"," + "\n\t\"password\":" + "\"\(password)\"" + "\n}"
             
             POST(input: payload, url: "create", completionHandler: { res in
-                self.requestDone(response: res)
+                self.createRequestDone(response: res)
 
             })
         }
         
     }
     
-    func requestDone(response:String)
+    func createRequestDone(response:String)
     {
         switch response.first! {
             

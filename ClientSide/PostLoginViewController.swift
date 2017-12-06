@@ -6,7 +6,7 @@ class PostLoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GET(url: "users")
+        setIdentity()
         
     }
     
@@ -14,6 +14,41 @@ class PostLoginView: UIViewController {
         //let destination = segue.destination as! SecondUIView
         
         
+    }
+    
+    func setIdentity()
+    {
+        GET(url: "users", completionHandler: { res in
+            
+            let json = try? JSONSerialization.jsonObject(with: res, options: [])
+            
+            let convertedString = jsonToString(json: json as AnyObject)
+            
+            let userDictionary = convertToDictionary(text: convertedString)
+            
+            for i in userDictionary!
+            {
+                if String(describing: i.value[0]) == user.serverSideUUID
+                {
+                    user.username = String(describing: i.key)
+                    user.displayName = String(describing: i.value[1])
+                }
+                else
+                {
+                    var tempUser = UserClass()
+                    tempUser.username = String(describing: i.key)
+                    tempUser.serverSideUUID = String(describing: i.value[0])
+                    tempUser.displayName = String(describing: i.value[1])
+                    
+                    allUsers.append(tempUser)
+                }
+                
+                print(i.key)
+                print(i.value[0])
+                print(i.value[1])
+            }
+            
+        })
     }
     
 }

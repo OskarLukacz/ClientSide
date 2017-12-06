@@ -8,7 +8,6 @@ func POST(input:String, url:String, completionHandler: @escaping (_ response: St
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let postString = input
     request.httpBody = postString.data(using: .utf8)
-    var res = String()
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         guard let data = data, error == nil else {                                                 // check for fundamental networking error
             print("error=\(String(describing:error))")
