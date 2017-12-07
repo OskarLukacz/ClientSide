@@ -86,6 +86,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		451DB0F91FD9AB0500411CA4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45A3D7851FCDD5D6004F4678 /* ViewController.swift */,
+				45A3D7B11FCDD649004F4678 /* SecondView.swift */,
+				4589F5EA1FD70D2600889362 /* DisplayNameViewController.swift */,
+				4589F5EC1FD70DFB00889362 /* PostLoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		45A3D7771FCDD5D6004F4678 = {
 			isa = PBXGroup;
 			children = (
@@ -110,10 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				45A3D7831FCDD5D6004F4678 /* AppDelegate.swift */,
-				45A3D7851FCDD5D6004F4678 /* ViewController.swift */,
-				45A3D7B11FCDD649004F4678 /* SecondView.swift */,
-				4589F5EA1FD70D2600889362 /* DisplayNameViewController.swift */,
-				4589F5EC1FD70DFB00889362 /* PostLoginViewController.swift */,
+				451DB0F91FD9AB0500411CA4 /* ViewControllers */,
 				45A3D7B31FCDD677004F4678 /* POST.swift */,
 				45A3D7B51FCDD689004F4678 /* GET.swift */,
 				4589F5E81FD70AC300889362 /* GlobalVariables.swift */,
