@@ -42,13 +42,30 @@ class PostLoginView: UIViewController {
                     
                     allUsers.append(tempUser)
                 }
-                
-                print(i.key)
-                print(i.value[0])
-                print(i.value[1])
             }
             
+            //self.identityCheck()
+            
         })
+    }
+    
+    func identityCheck()
+    {
+        print("You are: ")
+        print(user.username)
+        print(user.displayName)
+        print(user.serverSideUUID)
+        
+        print("All users:")
+        
+        for i in allUsers
+        {
+            print(i.username)
+            print(i.displayName)
+            print(i.serverSideUUID)
+            print("\n")
+        }
+        
     }
     
 }
