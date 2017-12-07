@@ -1,12 +1,24 @@
 import Foundation
 import UIKit
 
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 class PostLoginView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setIdentity()
+        
+        let configuration = appDelegate.client.currentConfiguration()
+        configuration.uuid = user.serverSideUUID
+        appDelegate.client.copyWithConfiguration(configuration, completion: { (updatedClient) in
+            
+            // Store reference on new client with updated configuration.
+            appDelegate.client = updatedClient
+            appDelegate.client.publish("\(user.serverSideUUID)", toChannel: "Swift", withCompletion: nil)
+        })
         
     }
     

@@ -7,18 +7,55 @@
 //
 
 import UIKit
+import PubNub
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
 
     var window: UIWindow?
-
+    
+    var client: PubNub!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        let configuration = PNConfiguration(publishKey: "pub-c-9c5bdb04-569f-4750-b87b-d9ff4cb0611e", subscribeKey: "sub-c-f48c7bba-b810-11e7-8af2-9e87ea144307")
+        configuration.stripMobilePayload = false
+        self.client = PubNub.clientWithConfiguration(configuration)
+        self.client.addListener(self)
+        self.client.subscribeToChannels(["Swift"], withPresence: true)
+        
+        self.client.publish("getIP", toChannel: "Swift", withCompletion: nil)
+        
         return true
     }
 
+    // Handle new message from one of channels on which client has been subscribed.
+    func client(_ client: PubNub, didReceiveMessage message: PNMessageResult) {
+        
+        // Handle new message stored in message.data.message
+        if message.data.channel != message.data.subscription {
+            
+            // Message has been received on channel group stored in message.data.subscription.
+        }
+        else {
+            
+            // Message has been received on channel stored in message.data.channel.
+        }
+        
+        print("Received message: \(String(describing: message.data.message!)) on channel \(message.data.channel) " +
+            "at \(message.data.timetoken)")
+        
+        if String(describing:message.data.message!).hasPrefix("ServerIP=")
+        {
+            let response = String(describing:message.data.message!)
+            
+            var index = response.index(of: "=");index = response.index(index!, offsetBy: 1)
+            serverIP = String(describing: response[index!...])
+            print("Server IP is: \(serverIP)")
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

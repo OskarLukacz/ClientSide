@@ -3,7 +3,7 @@ import UIKit
 
 func POST(input:String, url:String, completionHandler: @escaping (_ response: String) -> ())
 {
-    var request = URLRequest(url: URL(string: "http://10.46.22.145:8080/\(url)")!)
+    var request = URLRequest(url: URL(string: "http://\(serverIP):8080/\(url)")!)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let postString = input
