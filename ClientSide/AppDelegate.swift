@@ -29,6 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNObjectEventListener {
         
         return true
     }
+    
+    func setUUID()
+    {
+        let configuration = self.client.currentConfiguration()
+        configuration.uuid = user.serverSideUUID
+        self.client.copyWithConfiguration(configuration, completion: { (updatedClient) in
+            
+            // Store reference on new client with updated configuration.
+            self.client = updatedClient
+        })
+        
+        print("Client UUID is set to: " + self.client.uuid())
+    }
 
     // Handle new message from one of channels on which client has been subscribed.
     func client(_ client: PubNub, didReceiveMessage message: PNMessageResult) {

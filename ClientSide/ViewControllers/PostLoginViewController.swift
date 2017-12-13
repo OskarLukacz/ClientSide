@@ -1,8 +1,7 @@
 import Foundation
 import UIKit
+import PubNub
 
-
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 class PostLoginView: UIViewController {
     
@@ -10,15 +9,8 @@ class PostLoginView: UIViewController {
         super.viewDidLoad()
         
         setIdentity()
-        
-        let configuration = appDelegate.client.currentConfiguration()
-        configuration.uuid = user.serverSideUUID
-        appDelegate.client.copyWithConfiguration(configuration, completion: { (updatedClient) in
-            
-            // Store reference on new client with updated configuration.
-            appDelegate.client = updatedClient
-            appDelegate.client.publish("\(user.serverSideUUID)", toChannel: "Swift", withCompletion: nil)
-        })
+        appDelegate.setUUID()
+        publish(payload: user.serverSideUUID)
         
     }
     
